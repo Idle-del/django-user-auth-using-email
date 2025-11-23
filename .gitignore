@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Django migrations cache
+*/migrations/__pycache__/
+
+# Virtual environment
+env/
+
+# Django database
+db.sqlite3
