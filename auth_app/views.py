@@ -18,6 +18,11 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
     
+    def get_permissions(self):
+        if self.action == 'register':
+            self.permission_classes = [AllowAny]
+        return super().get_permissions()
+    
     @action(detail=False, methods=['post'], url_path='register')
     def register(self, request):
         serializer = UserSerializer(data=request.data)
